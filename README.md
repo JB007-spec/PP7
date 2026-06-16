@@ -132,6 +132,16 @@ In this exercise you will:
    ```
 7. **Explain** each tool’s approach to regex-based search and replace, and when you might prefer one over the others.
 
+   grep searches only and can only read what you are looking for.
+
+   sed edits without opening the UI of vim to search and finding the to be edited part of the code.
+
+   awk looks for a pattern and than edits it as it is told without using an UI like vim.
+
+
+   As of now I prefer Vim due to its interface and the immediate understanding what has to be changed or edited, I guess with further understanding I will use more the awk due to its pattern recognition. Mistakes I might make could be repetitive by nature, so awk would help me a lot there.
+   
+
 ---
 
 ### Task 3: Modular Linking with `extern`
@@ -173,10 +183,25 @@ In this exercise you will:
 5. Run `./solutions/add_example` to verify it prints `5 + 7 = 12`.
 6. **Document** the workflow in comments or a short file, emphasizing:
 
-   * The role of `extern` declarations.
-   * Why separating compilation can speed up builds.
-   * How manual linking differs from letting `gcc` handle all steps in one command.
+   PP7% cd solutions
+   solutions% vim add.c
+   solutions% vim main.c
+   solutions% cd ..
+   PP7% gcc -c solutions/add.c -o solutions/add.o
+   PP7% gcc -c solutions/main.c -o solutions/main.o
+   PP7% gcc solutions/add.o solutions/main.o -o solutions/add_example
+   PP7% ./solutions/add_example
+   5 + 7 = 12
 
+   
+   * The role of `extern` declarations.
+   extern is defining a function which can not be resolved by the compiler at this stage and adds add as a function. main.c uses add to solve its code. The          compiler can solve the whole code now.
+
+   * Why separating compilation can speed up builds.
+   If a program is very complex the whole code has to be compiled at once. If errors are detacted and fixed the programm has to run through the whole code again.    by compartamenalizing the code in several logical seperate files, each step can be checked seperatly and the compilation can be faster. 
+   
+   * How manual linking differs from letting `gcc` handle all steps in one command.
+   with linking the .o file stays on the disk, with complex programms changes are only being compiled, not the whole program again.
 ---
 
 **Remember:** Stop working after **90 minutes** and record where you stopped.
