@@ -195,13 +195,16 @@ In this exercise you will:
 
    
    * The role of `extern` declarations.
+   
    extern is defining a function which can not be resolved by the compiler at this stage and adds add as a function. main.c uses add to solve its code. The          compiler can solve the whole code now.
 
    * Why separating compilation can speed up builds.
+   
    If a program is very complex the whole code has to be compiled at once. If errors are detacted and fixed the programm has to run through the whole code again.    by compartamenalizing the code in several logical seperate files, each step can be checked seperatly and the compilation can be faster. 
    
    * How manual linking differs from letting `gcc` handle all steps in one command.
-   with linking the .o file stays on the disk, with complex programms changes are only being compiled, not the whole program again.
+   
+   With linking the .o file stays on the disk, with complex programms changes are only being compiled, not the whole program again.
 ---
 
 **Remember:** Stop working after **90 minutes** and record where you stopped.
